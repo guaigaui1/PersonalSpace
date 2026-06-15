@@ -1,0 +1,87 @@
+{
+  "name": { "zh": "张文冠", "en": "Wenguan Zhang" },
+  "title": { "zh": "大模型应用开发工程师", "en": "LLM Application Developer" },
+  "contact": {
+    "email": "3097913487@qq.com",
+    "phone": "17527659665",
+    "github": "github.com/guaigaui1"
+  },
+  "education": [
+    {
+      "period": "2024.09 - 2027.07",
+      "school": { "zh": "西安电子科技大学", "en": "Xidian University" },
+      "college": { "zh": "通信工程学院", "en": "School of Telecommunications Engineering" },
+      "degree": { "zh": "硕士 · 信息与通信工程", "en": "M.S. · Information and Communication Engineering" },
+      "lab": { "zh": "ISN 国家重点实验室", "en": "State Key Laboratory of ISN" }
+    },
+    {
+      "period": "2020.09 - 2024.07",
+      "school": { "zh": "华北水利水电大学", "en": "North China University of Water Resources and Electric Power" },
+      "college": { "zh": "电子工程学院", "en": "School of Electronic Engineering" },
+      "degree": { "zh": "本科 · 通信工程", "en": "B.S. · Communication Engineering" }
+    }
+  ],
+  "honors": [
+    { "zh": "第十五届数学竞赛省级一等奖", "en": "1st Prize, 15th Provincial Mathematics Competition" },
+    { "zh": "2024 级硕士研究生三等新生奖学金", "en": "Graduate Freshman Scholarship (3rd Class), 2024" },
+    { "zh": "CET-4 / CET-6 通过", "en": "Passed CET-4 and CET-6" }
+  ],
+  "projects": [
+    {
+      "id": "xiaofeng",
+      "name": { "zh": "智能客服小丰", "en": "智能客服小丰 (Xiaofeng — Intelligent Assistant)" },
+      "period": "2026.02 - 2026.06",
+      "intro": {
+        "zh": "基于 RAG 架构，实现从文档接入、切片、向量化存储到多源检索、意图路由、流式对话的全链路。",
+        "en": "End-to-end RAG system covering document ingestion, chunking, vector storage, multi-source retrieval, intent routing, and streaming dialogue."
+      },
+      "techStack": ["Spring Boot", "LangChain4j", "Elasticsearch", "Neo4j", "Redis", "MySQL", "MinIO", "MinerU"],
+      "highlights": [
+        {
+          "zh": "文档解析与分段：引入 MinerU，支持 PDF/Markdown/DOC/Excel 等多格式统一接入；引入滑动窗口重叠 + 父子分段方案，解决固定分片截断语义导致检索丢失的问题，召回完整度从约 75% 提升至 90% 以上",
+          "en": "Document Parsing & Chunking: integrated MinerU for unified ingestion of PDF/Markdown/DOC/Excel and other formats; added sliding-window overlap + parent-child chunking to fix retrieval loss caused by fixed-size splits cutting across semantics, lifting recall completeness from ~75% to over 90%"
+        },
+        {
+          "zh": "意图识别优化：基于 LLM 实现 6 大意图分类识别及结构化实体提取，通过 CoT、Few-shot 等优化手段，意图识别准确率提升到 98%",
+          "en": "Intent Recognition: built 6-class intent classification and structured entity extraction on an LLM; with CoT and Few-shot optimizations, intent recognition accuracy reached 98%"
+        },
+        {
+          "zh": "查询改写与智能路由：实现 4 维 Query Rewriting（简洁化/抽象化/纠错/标准化）；查询路由器将 Query 分发至 ES 检索 / MySQL / Neo4j，失败自动降级",
+          "en": "Query Rewriting & Routing: implemented 4-dimensional Query Rewriting (concise/abstract/correction/normalization); the query router dispatches each Query to Elasticsearch / MySQL / Neo4j with automatic fallback on failure"
+        },
+        {
+          "zh": "混合检索与精排序：ES BM25 + 向量语义检索构建混合检索，RRF 算法融合多源排序；基于 ONNX Runtime 加载 BGE-RERANKER 模型，零网络延迟完成检索结果精排。Top5 召回率从 82% 提升至 96%",
+          "en": "Hybrid Retrieval & Reranking: built hybrid retrieval with Elasticsearch BM25 + vector semantic search, fusing multi-source rankings via the RRF algorithm; loaded BGE-RERANKER on ONNX Runtime to rerank results with zero network latency. Top5 recall rose from 82% to 96%"
+        }
+      ]
+    },
+    {
+      "id": "dodo-agent",
+      "name": { "zh": "dodo-Agent", "en": "dodo-Agent" },
+      "period": "2025.11 - 2026.01",
+      "intro": {
+        "zh": "多智能体架构，实现联网搜索问答（ReAct）、文件 RAG 问答（RAG + ReAct）、PPT 智能生成（状态机）、深度自主研究（Plan-Execute-Critique）。",
+        "en": "Multi-agent architecture supporting web search QA (ReAct), file RAG QA (RAG + ReAct), PPT generation (state machine), and autonomous research (Plan-Execute-Critique)."
+      },
+      "techStack": ["Spring AI", "Project Reactor", "MCP", "Elasticsearch", "MySQL", "Redis", "MinIO", "通义千问"],
+      "highlights": [
+        {
+          "zh": "深度研究引擎：实现四阶段自主研究范式，每阶段使用独立角色 Prompt（规划/执行/评审专家）确保职责清晰；计划-执行-批判循环中按任务依赖分组实现并行/串行混合调度",
+          "en": "Deep Research Engine: implemented a four-stage autonomous research paradigm; each stage uses a role-specific Prompt (Planner/Executor/Critic) for clear responsibilities; within the Plan-Execute-Critique loop, tasks are grouped by dependency for mixed parallel/serial scheduling"
+        },
+        {
+          "zh": "动态上下文工程：扫描本地文件目录读取 skill.md，封装 skill 为工具，渐进式加载；设计智能压缩策略，多轮迭代超限时按优先级保留用户目标、工具执行结果、批判反馈，丢弃冗余对话过程",
+          "en": "Dynamic Context Engineering: scans the local file directory to read skill.md, wrapping each skill as a tool for progressive loading; a smart compression strategy keeps user goals, tool results, and critic feedback by priority when iterations exceed the limit, discarding redundant dialogue"
+        },
+        {
+          "zh": "多实例任务管理：通过 Redis 分布式锁实现同一会话任务只有一个实例，Pub/Sub 广播实现停止所有实例，TTL 自动续期实现长任务不丢失任务状态",
+          "en": "Multi-instance Task Management: uses Redis distributed locks to keep a single instance per session task, Pub/Sub broadcast to stop all instances, and TTL auto-renewal so long-running tasks never lose state"
+        },
+        {
+          "zh": "分阶段流式输出：基于 Project Reactor (Flux/Mono/Sinks) 实现 SSE 实时推送，支持 thinking/text/reference/recommend 四种消息类型逐阶段推送给前端",
+          "en": "Staged Streaming Output: built on Project Reactor (Flux/Mono/Sinks) for real-time SSE push, streaming four message types — thinking/text/reference/recommend — to the frontend stage by stage"
+        }
+      ]
+    }
+  ]
+}

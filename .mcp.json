@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "magic-ui": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@magicuidesign/mcp@latest"],
+      "env": {}
+    },
+    "react-bits": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "reactbits-dev-mcp-server"],
+      "env": {}
+    }
+  }
+}
