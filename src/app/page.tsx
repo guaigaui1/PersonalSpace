@@ -1,65 +1,115 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+import { TextAnimate } from "@/components/ui/TextAnimate";
+import { ShineBorder } from "@/components/ui/ShineBorder";
+import LogoLoop, { type LogoItem } from "@/components/ui/LogoLoop";
+import profile from "@/data/profile.json";
+import { useLang } from "@/lib/i18n";
+
+// 技术栈去重，做成滚动 chip
+const techNames = Array.from(
+  new Set(profile.projects.flatMap((p) => p.techStack)),
+);
+
+const techLogos: LogoItem[] = techNames.map((name) => ({
+  node: (
+    <span className="rounded-full border border-border bg-background/70 px-4 py-1.5 text-sm font-medium text-foreground/80">
+      {name}
+    </span>
+  ),
+  title: name,
+}));
 
 export default function Home() {
+  const { ui, lang, t } = useLang();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <section className="relative flex min-h-screen items-center overflow-hidden px-6 pb-24 pt-28 md:px-10">
+      {/* 暖色柔光背景 */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-32 top-10 size-[28rem] rounded-full opacity-50 blur-3xl"
+        style={{ background: "radial-gradient(circle, var(--color-accent-soft), transparent 70%)" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 bottom-0 size-[24rem] rounded-full opacity-40 blur-3xl"
+        style={{ background: "radial-gradient(circle, var(--color-apricot), transparent 70%)" }}
+      />
+
+      <div className="relative mx-auto w-full max-w-5xl">
+        <div className="relative max-w-2xl overflow-hidden rounded-[2rem] border border-border bg-card/50 p-8 backdrop-blur-sm md:p-12">
+          <ShineBorder
+            borderWidth={2}
+            duration={12}
+            shineColor={["#E8A0B8", "#F2D9C4", "#D17A98"]}
+          />
+
+          <Image
+            src="/logo.svg"
+            alt={t(profile.name)}
+            width={64}
+            height={64}
+            priority
+            className="mb-6 rounded-full shadow-sm"
+          />
+
+          <p className="text-base text-muted">{ui.home.greeting[lang]}</p>
+
+          <TextAnimate
+            as="h1"
+            by="character"
+            animation="blurInUp"
+            once
+            duration={0.6}
+            className="mt-1 text-5xl font-semibold tracking-tight text-foreground md:text-6xl"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            {t(profile.name)}
+          </TextAnimate>
+
+          <p className="mt-3 text-lg font-medium text-accent-ink">{t(profile.title)}</p>
+
+          <TextAnimate
+            as="p"
+            by="word"
+            animation="fadeIn"
+            delay={0.25}
+            once
+            className="mt-6 text-xl leading-relaxed text-foreground/90"
           >
-            Documentation
-          </a>
+            {ui.home.tagline[lang]}
+          </TextAnimate>
+
+          <p className="mt-4 max-w-xl text-base leading-7 text-muted">{ui.home.intro[lang]}</p>
+
+          <Link
+            href="/about"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-base font-medium text-background transition-transform hover:scale-[1.03]"
+          >
+            {ui.home.enter[lang]}
+            <ArrowRight className="size-4" aria-hidden />
+          </Link>
         </div>
-      </main>
-    </div>
+
+        {/* 技术栈滚动条 */}
+        <div className="mt-12 max-w-3xl">
+          <p className="mb-3 text-sm uppercase tracking-wide text-muted">{ui.home.techLabel[lang]}</p>
+          <LogoLoop
+            logos={techLogos}
+            speed={40}
+            logoHeight={34}
+            gap={16}
+            pauseOnHover
+            fadeOut
+            fadeOutColor="var(--color-background)"
+            ariaLabel="技术栈"
+          />
+        </div>
+      </div>
+    </section>
   );
 }

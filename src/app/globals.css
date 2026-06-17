@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
+/* 暖粉彩调性：奶白底 + 暖墨褐字 + 玫粉 accent。浅/暗双套，全部走 token。 */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbf7f2;
+  --foreground: #2e2723;
+  --muted: #6f635a; /* 次要文字 */
+  --card: #f3e9e0; /* 卡片/分隔底 */
+  --apricot: #f2d9c4; /* 奶杏 */
+  --caramel: #b89a82; /* 焦糖中性 */
+  --accent: #d17a98; /* 玫粉，装饰/大标题 */
+  --accent-soft: #e8a0b8; /* 柔玫粉，高亮底 */
+  --accent-ink: #a84e72; /* 深玫粉，正文链接达对比度 */
+  --border: #e7d9cc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1614;
+    --foreground: #ede4dc;
+    --muted: #b3a599;
+    --card: #241e1a;
+    --apricot: #3a2e27;
+    --caramel: #8a7460;
+    --accent: #e8a0b8;
+    --accent-soft: #d17a98;
+    --accent-ink: #f0acc4;
+    --border: #352b25;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-apricot: var(--apricot);
+  --color-caramel: var(--caramel);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --animate-shine: shine var(--duration) infinite linear;
+  --animate-marquee: marquee var(--duration) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes shine {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  to {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--foreground);
+}
+
+html {
+  scroll-behavior: smooth;
 }
