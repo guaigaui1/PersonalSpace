@@ -39,8 +39,15 @@ export function ScrollVelocity({ children, baseVelocity = 4, className }: Scroll
     baseX.set(baseX.get() + moveBy);
   });
 
+  // 左右渐隐，避免首尾字形被硬切
+  const fadeMask =
+    "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)";
+
   return (
-    <div className="overflow-hidden whitespace-nowrap flex-nowrap select-none">
+    <div
+      className="overflow-hidden whitespace-nowrap flex-nowrap select-none"
+      style={{ maskImage: fadeMask, WebkitMaskImage: fadeMask }}
+    >
       <motion.div className={cn("flex whitespace-nowrap flex-nowrap", className)} style={{ x }}>
         {Array.from({ length: 4 }).map((_, i) => (
           <span key={i} className="block mr-8">

@@ -33,6 +33,23 @@ const dict = {
     techLabel: { zh: "最近在用", en: "Recently using" },
     enter: { zh: "随便看看", en: "Look around" },
   },
+  // 「此刻」状态卡 —— 这是会过期的个人内容，随时来这里改
+  now: {
+    label: { zh: "此刻", en: "Now" },
+    whereLabel: { zh: "坐标", en: "Where" },
+    where: { zh: "西安 · 西安电子科技大学", en: "Xi'an · Xidian University" },
+    buildingLabel: { zh: "在做", en: "Building" },
+    building: {
+      zh: "写 RAG 与 Agent（小丰 / dodo-Agent）",
+      en: "RAG & Agent systems (Xiaofeng / dodo-Agent)",
+    },
+    latelyLabel: { zh: "最近", en: "Lately" },
+    lately: {
+      zh: "想把日子过得具体一点，这块慢慢往里填。",
+      en: "Trying to live a bit more deliberately — filling this in slowly.",
+    },
+    updated: { zh: "更新于 2026.06", en: "Updated 2026.06" },
+  },
   about: {
     title: { zh: "关于我", en: "About me" },
     band: { zh: "好奇 · 较真 · 松弛 · 喜欢把复杂的东西讲清楚", en: "Curious · Particular · Relaxed · Loves making complex things clear" },
@@ -59,6 +76,7 @@ const dict = {
     },
     stackLabel: { zh: "技术栈", en: "Stack" },
     flowTitle: { zh: "小丰的检索链路", en: "Xiaofeng's retrieval pipeline" },
+    loopTitle: { zh: "dodo 的研究循环", en: "dodo's research loop" },
   },
   life: {
     title: { zh: "兴趣 / 生活", en: "Interests / Life" },
@@ -79,6 +97,17 @@ const dict = {
       { zh: "收藏夹", en: "Saved" },
     ],
     soon: { zh: "待填充", en: "Coming soon" },
+    notesCount: { zh: "条记录", en: "entries" },
+    notesLatest: { zh: "最近", en: "Latest" },
+    open: { zh: "点开看看", en: "Open" },
+  },
+  notes: {
+    title: { zh: "随手记", en: "Notes" },
+    subtitle: {
+      zh: "每一次小感悟，按时间往下记，不删。",
+      en: "Small thoughts, logged over time — nothing deleted.",
+    },
+    back: { zh: "回到生活", en: "Back to Life" },
   },
   footer: {
     madeWith: { zh: "用 Next.js 搭的，慢慢长。", en: "Built with Next.js, growing slowly." },

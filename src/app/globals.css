@@ -40,7 +40,8 @@
   --color-accent-soft: var(--accent-soft);
   --color-accent-ink: var(--accent-ink);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-geist-sans), var(--font-noto-sc), "PingFang SC",
+    "Microsoft YaHei", sans-serif;
   --font-mono: var(--font-geist-mono);
 
   --animate-shine: shine var(--duration) infinite linear;

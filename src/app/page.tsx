@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { TextAnimate } from "@/components/ui/TextAnimate";
 import { ShineBorder } from "@/components/ui/ShineBorder";
 import LogoLoop, { type LogoItem } from "@/components/ui/LogoLoop";
+import { NowCard } from "@/components/NowCard";
 import profile from "@/data/profile.json";
 import { useLang } from "@/lib/i18n";
 
@@ -42,7 +43,8 @@ export default function Home() {
       />
 
       <div className="relative mx-auto w-full max-w-5xl">
-        <div className="relative max-w-2xl overflow-hidden rounded-[2rem] border border-border bg-card/50 p-8 backdrop-blur-sm md:p-12">
+        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)]">
+        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card/50 p-8 backdrop-blur-sm md:p-12">
           <ShineBorder
             borderWidth={2}
             duration={12}
@@ -93,6 +95,9 @@ export default function Home() {
             {ui.home.enter[lang]}
             <ArrowRight className="size-4" aria-hidden />
           </Link>
+        </div>
+
+          <NowCard />
         </div>
 
         {/* 技术栈滚动条 */}

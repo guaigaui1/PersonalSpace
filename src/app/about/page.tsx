@@ -11,6 +11,10 @@ import { useLang } from "@/lib/i18n";
 export default function AboutPage() {
   const { ui, lang, t } = useLang();
 
+  // 弱化履历感：证书（CET 等）降为脚注，其余作为小记录
+  const certHonors = profile.honors.filter((h) => h.zh.includes("CET"));
+  const otherHonors = profile.honors.filter((h) => !h.zh.includes("CET"));
+
   return (
     <div className="px-6 pb-24 pt-28 md:px-10">
       <div className="mx-auto w-full max-w-3xl">
@@ -66,23 +70,31 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* 记录 */}
+      {/* 记录（弱化，去履历感）*/}
       <div className="mx-auto mt-12 w-full max-w-3xl">
         <Reveal>
-          <h2 className="mb-6 flex items-center gap-2 text-xl font-semibold text-foreground">
-            <Award className="size-5 text-accent-ink" aria-hidden />
+          <h2 className="mb-4 flex items-center gap-2 text-base font-medium text-muted">
+            <Award className="size-4 text-accent-ink/70" aria-hidden />
             {ui.about.honorTitle[lang]}
           </h2>
         </Reveal>
-        <div className="flex flex-wrap gap-3">
-          {profile.honors.map((honor, i) => (
-            <Reveal key={honor.zh} delay={i * 0.05}>
-              <span className="inline-block rounded-full border border-border bg-background px-4 py-2 text-sm text-foreground/80">
+        <Reveal delay={0.05}>
+          <div className="flex flex-wrap gap-2">
+            {otherHonors.map((honor) => (
+              <span
+                key={honor.zh}
+                className="inline-block rounded-full border border-border/70 bg-card/30 px-3 py-1 text-xs text-muted"
+              >
                 {t(honor)}
               </span>
-            </Reveal>
-          ))}
-        </div>
+            ))}
+          </div>
+          {certHonors.length > 0 && (
+            <p className="mt-3 text-xs text-muted/80">
+              {certHonors.map((c) => t(c)).join(" · ")}
+            </p>
+          )}
+        </Reveal>
       </div>
     </div>
   );

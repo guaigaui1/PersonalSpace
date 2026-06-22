@@ -1,0 +1,50 @@
+{
+  "entries": [
+    {
+      "id": "2026-06-22-ai-and-product",
+      "date": "2026-06-22",
+      "title": {
+        "zh": "用 AI 协作 & 做产品的几个发力点",
+        "en": "Collaborating with AI & where to push on a product"
+      },
+      "body": [
+        { "zh": "一、怎么用 AI（用法层面）", "en": "I. How to use AI (at the usage level)" },
+        {
+          "zh": "别用聊天框，用 agent：用 Claude Code、Codex 这类 agent 形式跟 AI 协作，而不是简单的对话框。",
+          "en": "Don't use the chat box — use agents: collaborate with AI through tools like Claude Code or Codex, not a simple chat box."
+        },
+        {
+          "zh": "定期复盘沉淀：每周把一周的对话拿给 AI 复盘，让它帮你提炼——哪些是重复劳动（可固化）、哪些可以改进。把零散对话变成可积累的知识资产。",
+          "en": "Review regularly: each week, hand a week of conversations to the AI to distill — what's repetitive (worth codifying), what can improve. Turn scattered chats into a compounding knowledge asset."
+        },
+        { "zh": "", "en": "" },
+        { "zh": "二、做软件的三个发力点（每一个都能做到极致）", "en": "II. Three places to push when building software (take each to the extreme)" },
+        { "zh": "1. 界面（Interface）——需要审美（自评不擅长，可暂时绕开）", "en": "1. Interface — needs taste (not your strength for now, can skip)" },
+        { "zh": "2. 工作流（Workflow）——做事的方法论、流程", "en": "2. Workflow — the methodology and process of getting things done" },
+        { "zh": "3. 数据 / 知识库（Data）——积累的数据本身就是壁垒", "en": "3. Data / knowledge base — the accumulated data is itself a moat" },
+        { "zh": "三者任一做到极致，就是个好产品。", "en": "Take any one to the extreme and you have a good product." },
+        { "zh": "", "en": "" },
+        { "zh": "三、选方向的两条黄金标准", "en": "III. Two golden criteria for choosing a direction" },
+        { "zh": "1. 找你热爱的事：干三天三夜也不觉得累的那件事。", "en": "1. Find what you love: the thing you can do for three days straight without tiring." },
+        { "zh": "2. 找你的不对称优势：你做起来很容易、别人做起来很难的事。", "en": "2. Find your asymmetric advantage: easy for you, hard for others." },
+        { "zh": "两条交叉的地方，就是你该投入的方向。", "en": "Where the two cross is where you should invest." },
+        { "zh": "", "en": "" },
+        { "zh": "四、当前的卡点（待解决）", "en": "IV. Current bottleneck (to solve)" },
+        {
+          "zh": "已经把方法论打包成了 skill——这就是你的「工作流」资产。",
+          "en": "You've packaged your methodology into a skill — that's your 'workflow' asset."
+        },
+        {
+          "zh": "问题：暂时无法变现。原因有二：a. 资料给别人就能直接复制，没有壁垒；b. 方法论不一定适配别人，通用性存疑。",
+          "en": "Problem: it can't be monetized yet. Two reasons: a. the material can be copied once shared — no moat; b. the methodology may not fit others — generality is uncertain."
+        },
+        { "zh": "", "en": "" },
+        { "zh": "我的补充：", "en": "My addition:" },
+        {
+          "zh": "这个卡点正好对应三发力点——你现在强的是「工作流」，弱的是「界面」和「数据」。光卖工作流（skill 文件）容易被复制；但如果把工作流包进一个界面 / 服务里，或让它在使用中沉淀出只属于你的数据，复制就难了。变现的钥匙可能不在「卖方法论」，而在「把方法论变成别人离不开的产品形态」。",
+          "en": "This bottleneck maps onto the three push-points — you're strong at 'workflow,' weak at 'interface' and 'data.' Selling workflow alone (skill files) is easy to copy; but wrap it inside an interface/service, or let it accumulate data that's uniquely yours through use, and copying gets hard. The key to monetizing may not be 'selling the methodology,' but 'turning it into a product people can't live without.'"
+        }
+      ]
+    }
+  ]
+}
