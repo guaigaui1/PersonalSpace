@@ -43,7 +43,7 @@ export default function Home() {
       />
 
       <div className="relative mx-auto w-full max-w-5xl">
-        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)]">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] lg:items-stretch">
         <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card/50 p-8 backdrop-blur-sm md:p-12">
           <ShineBorder
             borderWidth={2}
@@ -57,7 +57,7 @@ export default function Home() {
             width={64}
             height={64}
             priority
-            className="mb-6 rounded-full shadow-sm"
+            className="mb-6 rounded-full shadow-sm transition-transform duration-300 hover:rotate-6 hover:scale-105"
           />
 
           <p className="text-base text-muted">{ui.home.greeting[lang]}</p>
@@ -103,16 +103,23 @@ export default function Home() {
         {/* 技术栈滚动条 */}
         <div className="mt-12 max-w-3xl">
           <p className="mb-3 text-sm uppercase tracking-wide text-muted">{ui.home.techLabel[lang]}</p>
-          <LogoLoop
-            logos={techLogos}
-            speed={40}
-            logoHeight={34}
-            gap={16}
-            pauseOnHover
-            fadeOut
-            fadeOutColor="var(--color-background)"
-            ariaLabel="技术栈"
-          />
+          <div
+            style={{
+              maskImage:
+                "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
+            }}
+          >
+            <LogoLoop
+              logos={techLogos}
+              speed={40}
+              logoHeight={34}
+              gap={16}
+              pauseOnHover
+              ariaLabel="技术栈"
+            />
+          </div>
         </div>
       </div>
     </section>

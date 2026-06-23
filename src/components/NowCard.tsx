@@ -15,7 +15,7 @@ export function NowCard() {
   ];
 
   return (
-    <div className="relative w-full rounded-[1.75rem] border border-accent/40 bg-background/60 p-7 backdrop-blur-sm shadow-[0_0_40px_-18px_var(--color-accent)]">
+    <div className="relative flex h-full w-full flex-col rounded-[1.75rem] border border-accent/40 bg-background/60 p-7 backdrop-blur-sm shadow-[0_0_40px_-18px_var(--color-accent)]">
       <div className="mb-5 flex items-center gap-2">
         <span className="relative flex size-2.5">
           <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-60" />
@@ -43,7 +43,7 @@ export function NowCard() {
         })}
       </ul>
 
-      <p className="mt-6 text-xs text-muted">{now.updated[lang]}</p>
+      <p className="mt-auto pt-6 text-xs text-muted">{now.updated[lang]}</p>
     </div>
   );
 }

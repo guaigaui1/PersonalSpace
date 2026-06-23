@@ -23,11 +23,7 @@ export default function WorkPage() {
         <div className="mt-14 space-y-10">
           {profile.projects.map((project, idx) => (
             <Reveal key={project.id} delay={0.05}>
-              <article
-                className={`group relative overflow-hidden rounded-[1.75rem] border border-border bg-card/40 p-7 transition-shadow duration-300 hover:shadow-[0_0_0_1px_var(--color-accent),0_18px_50px_-20px_var(--color-accent)] md:max-w-[92%] md:p-9 ${
-                  idx % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
-                }`}
-              >
+              <article className="group relative overflow-hidden rounded-[1.75rem] border border-border bg-card/40 p-7 transition-shadow duration-300 hover:shadow-[0_0_0_1px_var(--color-accent),0_18px_50px_-20px_var(--color-accent)] md:p-9">
                 <ShineBorder borderWidth={1} duration={16} shineColor={["#E8A0B8", "#D17A98"]} />
 
                 <div className="flex flex-wrap items-baseline justify-between gap-2">

@@ -64,7 +64,7 @@ export default function NotesPage() {
                       );
                     }
                     return (
-                      <p key={j} className="mt-1.5 text-[15px] leading-7 text-foreground/85">
+                      <p key={j} className="mt-1.5 text-base leading-7 text-foreground/85">
                         {text}
                       </p>
                     );
@@ -73,6 +73,17 @@ export default function NotesPage() {
               </article>
             </Reveal>
           ))}
+
+          {/* 收尾点：暗示会持续写、不删 */}
+          <div className="relative pl-8">
+            <span
+              aria-hidden
+              className="absolute left-0 top-1.5 size-3.5 rounded-full border-2 border-background bg-border"
+            />
+            <p className="text-sm text-muted">
+              {lang === "zh" ? "· 待续" : "· To be continued"}
+            </p>
+          </div>
         </div>
       </div>
     </div>
